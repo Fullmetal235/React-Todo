@@ -1,26 +1,26 @@
 import React from 'react'
 
- class ToDoForm extends React.Component{
+class ToDoForm extends React.Component{
     constructor(){
         super();
         this.state = {
             item: ''
         }
-
-     }
+        
+    }
      submitTask = event => {
         event.preventDefault()
         this.props.addTask(this.state.item)
     }
 
-      handleChange = event => {
+     handleChange = event => {
         this.setState({
             [event.target.name]:event.target.value
         })
         // console.log(this.state)
      }
 
-     render(){
+    render(){
         return(<>
         <form onSubmit={this.submitTask}>
             <input
@@ -30,11 +30,11 @@ import React from 'react'
             onChange={this.handleChange}
             />
             <button>Add</button>
-            <button>Clear Completed</button>
+            <button onClick={this.props.clearTask}>Clear Completed</button>
         </form>
             </>
         )
     }
 }
 
- export default ToDoForm
+export default ToDoForm
