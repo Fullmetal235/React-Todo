@@ -2,26 +2,26 @@
 // feel free to change this component.js into TodoList.js
 import React from 'react'
 
- import ToDo from './Todo.js'
-import ToDoForm from './TodoForm.js'
+import ToDo from './Todo.js'
 
- class TodoList extends React.Component {
+
+class TodoList extends React.Component {
     constructor(){
         super();
 
-     }
+    }
     render(){
         return(<div>
             <h2>Here is my personal List</h2>
             {this.props.taskList.map(item => 
               <ToDo key={item.id} item={item}
-            //    toggleItem={props.toggleItem}
+               toggleTask={this.props.toggleTask}
                />  
             )}
-            { <ToDoForm />}
+            
+           
+        </div>)}
+    
+}
 
-         </div>)}
-
- }
-
- export default TodoList;
+export default TodoList;
